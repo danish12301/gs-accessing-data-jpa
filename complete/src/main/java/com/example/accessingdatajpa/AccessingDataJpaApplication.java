@@ -25,6 +25,7 @@ public class AccessingDataJpaApplication {
 			repository.save(new Customer("Kim", "Bauer"));
 			repository.save(new Customer("David", "Palmer"));
 			repository.save(new Customer("Michelle", "Dessler"));
+			repository.save(new Customer("Michelle", "Bauer"));
 
 			// fetch all customers
 			log.info("Customers found with findAll():");
@@ -47,9 +48,18 @@ public class AccessingDataJpaApplication {
 			repository.findByLastName("Bauer").forEach(bauer -> {
 				log.info(bauer.toString());
 			});
-			// for (Customer bauer : repository.findByLastName("Bauer")) {
-			// 	log.info(bauer.toString());
-			// }
+
+			//for (Customer bauer : repository.findByLastName("Bauer")) {
+			//	log.info(bauer.toString());
+			//}
+
+			log.info("Customer found with findByFirstName('Michelle'):");
+			log.info(repository.findByFirstName("Michelle").toString());
+			//log.info(repository.findByFirstName("Michelle").getFirstName().toString());
+
+			log.info("First names of all Customers are: ");
+			//log.info(repository.findAll().forEach(log.info(););
+
 			log.info("");
 		};
 	}
